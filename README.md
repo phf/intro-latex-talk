@@ -1,6 +1,11 @@
 # Introduction to LaTeX
 
 A brief intro to LaTeX and friends. Probably biased.
+Certainly incomplete.
+But what do you want, it's a huge ecosystem and it's
+awesomely disorganized at times.
+Still, if you're willing to learn, you will be
+rewarded with almost limitless typographic beauty.
 
 ## License
 
