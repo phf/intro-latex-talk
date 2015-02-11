@@ -2,6 +2,8 @@
 
 % enable useful warnings about various things
 \RequirePackage[l2tabu,orthodox]{nag}
+% fixes for various LaTeX2e kernel bugs
+\RequirePackage{fixltx2e}
 
 % explicit paper size (same default), larger font (default 10pt)
 \documentclass[letterpaper,11pt]{article}
@@ -79,7 +81,7 @@ Where you say whatever you couldn't say earlier
 in the paper for some reason.
 % here's some math since you've heard that TeX
 % is good at that kind of stuff
-There are silly formulas like $a^2 + b^2 = c^2$ I
+There are silly formulas like \(a^2 + b^2 = c^2\) I
 guess, but that's not nearly cool enough. So let's
 try this instead:
 \[
