@@ -1,0 +1,126 @@
+% vim: spell spelllang=en_us
+
+% explicit paper size (same default), larger font (default 10pt)
+\documentclass[letterpaper,11pt]{article}
+
+% enable useful warnings about various things
+\RequirePackage[l2tabu,orthodox]{nag}
+
+% replace the main font (default Computer Modern)
+\usepackage{mathpazo}
+
+% lots and lots of additional math-related commands
+\usepackage{amsmath}
+
+% make the title bold
+\title{\textbf{A Fancier Article on Some Topic}}
+% explicit line-break, typewriter font for email address,
+% more authors
+\author{Peter H.\ Fr{\"o}hlich\\
+\texttt{phf@cs.jhu.edu}
+\and
+Someone E.\ Entirely\\
+\texttt{someone@example.net}
+\and
+Can Never Recall\\
+\texttt{recall@what.org}}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Oh the wonders of \LaTeX!
+As you can see a lot of the layout is completely
+automatic and moderately boring.
+But that's sort of the point.
+\end{abstract}
+
+\section{Introduction}
+
+Where you introduce the topic you want to rant
+about for the next few pages.
+And of course you can cite things like
+% citations by keyword, see below
+\cite{lamport94} or \cite{kant02} if you feel
+like it.
+
+\section{Methodology}
+
+Where you describe the approach you took and
+% footnote, note no space between word and command
+attempt to justify\footnote{Check this out,
+you can slap a footnote basically anywhere
+and it'll actually come out alright. Well,
+sorta anyway.} why it's valid.
+
+\section{Results}
+
+Where you give the results of your experiments
+and explain away any anomalies that might be
+embarrassing.
+
+\section{Related Work}
+
+Where you describe work that others have done
+and either praise it or rip it to shreds.
+
+\section{Conclusions}
+
+Where you tell people that don't read the rest
+what it all means; presumably also where you
+state that more research is definitely needed.
+
+\appendix
+
+\section{Appendix}
+
+Where you say whatever you couldn't say earlier
+in the paper for some reason.
+% here's some math since you've heard that TeX
+% is good at that kind of stuff
+There are silly formulas like $a^2 + b^2 = c^2$ I
+guess, but that's not nearly cool enough. So let's
+try this instead:
+\[
+\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n}
+= 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \cdots
+= \ln 2
+\]
+Not too shabby! And because I am sure that
+\emph{someone} is taking Linear Algebra right
+now:
+\[
+A_{m,n} =
+\begin{pmatrix}
+a_{1,1} & a_{1,2} & \cdots & a_{1,n}\\
+a_{2,1} & a_{2,2} & \cdots & a_{2,n}\\
+\vdots  & \vdots  & \ddots & \vdots\\
+a_{m,1} & a_{m,2} & \cdots & a_{m,n}
+\end{pmatrix}
+\]
+Doing this in regular \LaTeX{} would be a bit harder,
+but with \AmS-\LaTeX{} it's no problem whatsoever.
+
+% define entries of the bibliography, this is the
+% silly way of doing bibliographies though...
+\begin{thebibliography}{9}
+
+\bibitem{kant02}
+Immanuel Kant,
+\emph{Prolegomena to Any Future Metaphysics
+That Can Qualify as a Science}.
+Translated by Paul Carus.
+Open Court Publishing Company, Illinois,
+1902.
+
+\bibitem{lamport94}
+Leslie Lamport,
+\emph{\LaTeX: A Document Preparation System}.
+Addison-Wesley, Massachusetts,
+2nd edition,
+1994.
+
+\end{thebibliography}
+
+\end{document}
