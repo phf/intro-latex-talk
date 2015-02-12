@@ -1,0 +1,147 @@
+% vim: spell spelllang=en_us
+
+% A more complicated book-like project, lecture
+% notes for a fictitious course.
+
+% Sorry, I didn't get done with all the notes
+% for this one. :-/
+
+\RequirePackage[l2tabu,orthodox]{nag}
+\RequirePackage{fixltx2e}
+
+\documentclass[11pt]{book}
+
+% we intend to publish this as a 6in x 9in
+% hardcover on lulu.com :-)
+\usepackage[
+paperwidth=6in,
+paperheight=9in,
+]{geometry}
+
+% a bunch of useful colors, see below
+\usepackage{color}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.5}
+\definecolor{darkgreen}{rgb}{0.0,0.3,0.0}
+\definecolor{darkred}{rgb}{0.5,0.0,0.0}
+\definecolor{lightgray}{gray}{0.75}
+
+% we want some hypertext stuff please
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+urlcolor=darkblue,
+citecolor=darkred,
+linkcolor=darkgreen,
+}
+
+% switch to a different font
+\usepackage{fouriernc}
+
+% let's put a watermark on all pages
+\usepackage{draftwatermark}
+\SetWatermarkLightness{0.90}
+
+% make sure citations are properly compressed
+\usepackage{cite}
+
+% minimize the number of orphans and widows
+\usepackage[all]{nowidow}
+\raggedbottom
+
+% we'll have an index as well
+\usepackage{makeidx}
+\makeindex
+
+% change formatting of chapter headings
+\usepackage{titlesec}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{lightgray}{\(\blacksquare\)}\hsp}{0pt}{\Huge\bfseries}
+
+% these two allow us to create text automatically
+\usepackage{lipsum}
+\usepackage{blindtext}
+
+% alright, now we start the actual book :-)
+\title{\textbf{Typography of History}\\
+Lecture Notes for AS.987.123}
+\author{Peter H.\ Fr{\"o}hlich\\
+phf@cs.jhu.edu}
+
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\lipsum[1]
+
+Let's cite a few things like \cite{kant02} and of
+course \cite{lamport94}, but also all of these
+please \cite{Conway2000,Meyer2000,Huetal2000,LaTeXe,lshort,Gill}.
+\lipsum[3-4]
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\mainmatter
+
+\chapter{Prologue}
+\lipsum[1-10]
+
+\chapter{The Ancient World}
+\lipsum[2]
+
+On the other hand, we'd prefer to do some
+serious Algebraic Topology\index{Algebraic Topology}\index{Topology!Algebraic}
+instead of Category Theory\index{Category Theory} to figure this out.
+
+\section{A Journey of Doom}
+\lipsum[1-4]
+
+\section{Deep in Type}
+\lipsum[7-10]
+
+\section{The Terror of Word}
+\lipsum[4-5]
+
+\chapter{The Dark Ages}
+\lipsum[1-10]
+
+\chapter[Democracy of the Masters]{Democracy of the\\Masters}
+\lipsum[1-10]
+
+\chapter{Epilogue}
+\blindmathpaper
+
+\appendix
+
+\chapter{Details}
+\lipsum[2-5]
+
+\chapter{More Details}
+\lipsum[4-9]
+
+\backmatter
+
+\newpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{04-lecture-notes}{}
+\bibliographystyle{plain}
+%\bibliographystyle{abbrv}
+%\bibliographystyle{alpha}
+%\bibliographystyle{apalike}
+
+\chapter*{Colophone}
+\addcontentsline{toc}{chapter}{Colophone}
+\lipsum[2]
+
+\clearpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\end{document}
