@@ -7,3 +7,9 @@
 *.toc
 *.lof
 *.lot
+*.bbl
+*.blg
+*.idx
+*.ind
+*.ilg
+*.dvi
