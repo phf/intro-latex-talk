@@ -3,36 +3,60 @@
 
 \documentclass{beamer}
 
+% bunch of special fonts for various symbols
 \usepackage{mflogo}
 \usepackage{manfnt}
 \usepackage{hieroglf}
 \usepackage{marvosym}
 \usepackage{wasysym}
-\usepackage{url}
 
+% typeset URLs properly, in sans serif
+\usepackage{url}
+\urlstyle{sf}
+
+% except for the TeX logos this looks better
+\usepackage[defaultsans]{droidsans}
+
+% some additional beamer customization
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize/enumerate subbody end}{\vspace{\baselineskip}}
+
+\usefonttheme{structurebold}
+
+\usecolortheme{whale}
+\definecolor{jhublue}{RGB}{102,137,204}
+\definecolor{jhuazure}{RGB}{0,51,127}
+\setbeamercolor{structure}{fg=jhuazure}
+
+% command to produce sectioning slides
+\newcommand{\cutesection}[2]{
+  \section{#1}
+  \frame{
+    \frametitle{#1}
+    \begin{center}
+      \Huge{#2}\\\textbf{#1}
+    \end{center}
+  }
+}
+
+% start of presentation proper
 \title{A Brief Intro to \LaTeX{} and Friends}
 \author{Peter H.\ Fr{\"o}hlich\\
-\texttt{phf@cs.jhu.edu}}
+{\footnotesize phf@cs.jhu.edu}}
 \date{February 12, 2015}
 
 \begin{document}
 
 \frame{
-\titlepage
+  \titlepage
 }
 
 \frame{
-\frametitle{Outline}
-\tableofcontents
+  \frametitle{Outline}
+  \tableofcontents
 }
 
-\section{Motivation}
-
-\frame{
-\begin{center}
-\Huge\smiley\\\textbf{Motivation}
-\end{center}
-}
+\cutesection{Motivation}{\smiley}
 
 \frame{
   \frametitle{Cute Mascot!}
@@ -42,13 +66,43 @@
   \end{center}
 }
 
-\section{History}
+\frame{
+  \frametitle{Seriously, why \LaTeX{}?}
+  \begin{itemize}
+    \item Standard in Computer Science and related disciplines.
+    \begin{itemize}
+      \item Your (future?) co-authors (will!) use it already.
+      \item Most conferences accept it cheerfully.
+      \item Some conferences actually require it.
+    \end{itemize}
+    \item Documents in plain text format (for the most part).
+    \begin{itemize}
+      \item Straightforward for versioning systems.
+      \item Trivially portable (but avoid funky encodings!).
+      \item Easily generated from stuff like Markdown.
+    \end{itemize}
+  \end{itemize}
+}
 
 \frame{
-\begin{center}
-\Huge\textpmhg{\Ha\Hv\Hman}\\\textbf{History}
-\end{center}
+  \frametitle{Seriously, why \LaTeX{}?}
+  \begin{itemize}
+    \item Integrated ``well enough'' with the command line.
+    \begin{itemize}
+      \item Use your favorite build system.
+      \item Integrate with whatever else you need.
+      \item Produce complex documents automatically.
+    \end{itemize}
+    \item Extensible with macros and packages.
+    \begin{itemize}
+      \item Use macros to customize ``little things'' in documents.
+      \item Develop your own classes to standardize documents.
+      \item Packages for anything from musical scores to chess games.
+    \end{itemize}
+  \end{itemize}
 }
+
+\cutesection{History}{\textpmhg{\Ha\Hv\Hman}}
 
 \frame{
   \frametitle{Donald Knuth}
@@ -67,10 +121,10 @@
         analysis of algorithms and the design of
         programming languages\dots}
     \end{itemize}
-    \item Wanted to produce more beautiful books, himself.
+    \item Wanted to produce beautiful books, by himself.
     \begin{itemize}
       \item Studied typography and font design, in depth.
-      \item Lots of interesting algorithms, for example hyphenation.
+      \item Interesting algorithms, for example hyphenation.
       \item Developed \TeX{} and \MF{} languages and tools.
       \item Documented (with complete source) in five books.
     \end{itemize}
@@ -102,12 +156,12 @@
     \begin{itemize}
       \item Found \TeX{} too low-level, wanted more structure.
       \item Developed \LaTeX{} macro package to that end.
-      \item Never wrote that concurrency book\dots{}
+      \item Never wrote the concurrency book\dots{}
       \begin{itemize}
-        \item Did write a \LaTeX{} book! :-)
+        \item Did write a \LaTeX{} book however! \smiley
       \end{itemize}
     \end{itemize}
-    \item Since taken over by a ``cast of thousands'' in \LaTeXe{}.
+    \item Since taken over by a ``cast of thousands'' as it were.
     \begin{itemize}
       \item Quite different from Lamport's original if you look closely.
       \item Also emphasizes stability and backwards-compatibility.
@@ -115,55 +169,45 @@
   \end{itemize}
 }
 
-\section{Warnings}
+\cutesection{Caveats}{\textdbend}
 
 \frame{
-\begin{center}
-\Huge\textdbend{}\\\textbf{Warnings}
-\end{center}
-}
-
-\frame{
-  \frametitle{Warnings}
+  \frametitle{Caveats}
   \begin{itemize}
     \item \LaTeX{} can be a bit frustrating when you start out.
     \begin{itemize}
       \item Just trust that once you get it, you won't go back.
       \item Keep it simple, focus on content not presentation.
+      \item Google (or whatever search engine) is your friend.
     \end{itemize}
     \item There's a huge ecosystem out there!
     \begin{itemize}
       \item Almost everything exists (but it might be 20 years old).
       \item Can be difficult to find exactly what you're looking for.
-      \item But it's generally a pretty friendly community.
+      \item Luckily it's generally a pretty friendly community.
     \end{itemize}
+  \end{itemize}
+}
+
+\frame{
+  \frametitle{Caveats}
+  \begin{itemize}
     \item Packages may seem like modules, but they are really not.
     \begin{itemize}
       \item Subtle interactions between different packages.
       \item Order of ``import'' can matter even though it shouldn't.
       \item It's almost all text-macros in the end, act accordingly!
     \end{itemize}
-    \item Use \texttt{fixltx2e} and \texttt{nag} as I'll show you!
+    \item Use all the tools at your disposal to limit problems.
     \begin{itemize}
-      \item And watch for \texttt{nag} warnings, otherwise it won't help you.
+      \item Keep it simple, baby steps, RTFM, \dots{} you know the drill.
+      \item Always use \texttt{fixltx2e} and \texttt{nag} as I'll show you!
+      \item Actually pay attention to the darn warnings?
     \end{itemize}
   \end{itemize}
 }
 
-\section{Demos}
-
-\frame{
-\begin{center}
-\Huge\Keyboard{} \ComputerMouse\\\textbf{Demos}
-\end{center}
-}
-
-\section{Questions?}
-
-\frame{
-\begin{center}
-\Huge\frownie{}\\\textbf{Questions?}
-\end{center}
-}
+\cutesection{Demo}{\Keyboard{} \ComputerMouse}
+\cutesection{Questions?}{\frownie}
 
 \end{document}
