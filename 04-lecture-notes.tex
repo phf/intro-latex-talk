@@ -68,7 +68,7 @@ linkcolor=darkgreen,
 \usepackage{lipsum}
 \usepackage{blindtext}
 
-% a silly abbreviated I needed to import something
+% a silly abbreviation I needed to import an example
 \newcommand{\f}{\bfseries}
 
 % alright, now we start the actual book :-)
@@ -83,8 +83,7 @@ phf@cs.jhu.edu}
 
 \maketitle
 
-\chapter*{Preface}
-\addcontentsline{toc}{chapter}{Preface}
+\chapter{Preface}
 
 \lipsum[1]
 
@@ -194,21 +193,22 @@ Level &
 
 \backmatter
 
-\newpage
+\cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliography{04-lecture-notes}{}
+% plain is [2] and full author name, abbrv shortens author
+% alpha is [Kan02], common in CS books
+% apalike is [Brooks et al., 2010]
 \bibliographystyle{plain}
-%\bibliographystyle{abbrv}
-%\bibliographystyle{alpha}
-%\bibliographystyle{apalike}
 
-\chapter*{Colophone}
-\addcontentsline{toc}{chapter}{Colophone}
-\lipsum[2]
-
-\clearpage
+\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{Index}
 \printindex
+
+\cleardoublepage
+\chapter{Colophone}
+\lipsum[2]
 
 \end{document}
