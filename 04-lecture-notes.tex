@@ -25,15 +25,6 @@ paperheight=9in,
 \definecolor{darkred}{rgb}{0.5,0.0,0.0}
 \definecolor{lightgray}{gray}{0.75}
 
-% we want some hypertext stuff please
-\usepackage{hyperref}
-\hypersetup{
-colorlinks=true,
-urlcolor=darkblue,
-citecolor=darkred,
-linkcolor=darkgreen,
-}
-
 % switch to a different font
 \usepackage{fouriernc}
 
@@ -70,6 +61,16 @@ linkcolor=darkgreen,
 
 % a silly abbreviation I needed to import an example
 \newcommand{\f}{\bfseries}
+
+% we want some hypertext stuff please
+% IMPORTANT: !always load hyperref last!
+\usepackage{hyperref}
+\hypersetup{
+colorlinks=true,
+urlcolor=darkblue,
+citecolor=darkred,
+linkcolor=darkgreen,
+}
 
 % alright, now we start the actual book :-)
 \title{\textbf{The Typography of History}\\
