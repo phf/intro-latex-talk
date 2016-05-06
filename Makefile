@@ -1,5 +1,6 @@
 TEX=pdflatex
 BIBTEX=bibtex
+INDEX=makeindex
 
 all: 04-lecture-notes.pdf
 
@@ -7,7 +8,8 @@ all: 04-lecture-notes.pdf
 # documents you probably won't notice on today's machines...
 04-lecture-notes.pdf: 04-lecture-notes.tex 04-lecture-notes.bib plot.pdf
 	$(TEX) $<
-	while ($(BIBTEX) $(basename $<).aux ; \
+	while ($(BIBTEX) $(basename $<) ; \
+	$(INDEX) $(basename $<) ; \
 	$(TEX) $< ; \
 	grep -q "Rerun to get cross-references" $(basename $<).log ) do true ; \
 	done
