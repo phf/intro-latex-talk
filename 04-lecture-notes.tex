@@ -59,6 +59,9 @@ paperheight=9in,
 \usepackage{lipsum}
 \usepackage{blindtext}
 
+% smarter cross-references that include automatic page-references
+\usepackage{varioref}
+
 % a silly abbreviation I needed to import an example
 \newcommand{\f}{\bfseries}
 
@@ -108,6 +111,7 @@ please \cite{Conway2000,Meyer2000,Huetal2000,LaTeXe,lshort,Gill}.
 On the other hand, we'd prefer to do some
 serious Algebraic Topology\index{Algebraic Topology}\index{Topology!Algebraic}
 instead of Category Theory\index{Category Theory} to figure this out.
+See Figure~\vref{plot}.
 
 \section{A Journey of Doom}
 \lipsum[1-4]
@@ -175,8 +179,11 @@ Level &
 \centering
 \includegraphics[width=\textwidth]{plot}
 \caption{Something silly PyLab plotted for us}
+\label{plot}
 \end{figure}
-\lipsum[3-8]
+\lipsum[3]
+Also shown in Figure~\vref{plot} of course.
+\lipsum[4-8]
 
 \chapter[Democracy of the Masters]{Democracy of the\\Masters}
 \lipsum[1-10]

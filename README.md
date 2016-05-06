@@ -26,8 +26,8 @@ with almost limitless typographic beauty.
   shows off a more complex document (lecture notes for
   a fictitious course) and messes with lots of things
   including chapter headings; shows how an index and an
-  external bibliography can be used; TODO add examples
-  of cross-referencing
+  external bibliography can be used; also shows off
+  cross-references in the document
 
 - **05-color-test.tex** and **jhcolors.sty**
   demonstrates how to hack a custom style file
