@@ -1,0 +1,80 @@
+% vim: spell spelllang=en_us
+
+\RequirePackage[l2tabu,orthodox]{nag}
+\RequirePackage{fixltx2e}
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{fourier}
+%\usepackage{amsmath}
+\usepackage{empheq}
+
+\title{\textbf{Lambdas Everywhere}}
+\author{Peter H.\ Fr{\"o}hlich\\
+phf@acm.org}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Tries to show how you can \(\lambda\) it up.
+Sorry, this is nowhere near complete,
+but I don't have time for more right now.
+\end{abstract}
+
+\section*{Problem 1}
+
+You can state short fragments like \(S \equiv \lambda nab.a(nab)\) in the text
+itself.
+Or you can typeset them more prominently as follows:
+\[
+S \equiv \lambda nab.a(nab)
+\]
+If need be, you can even number your equations:
+\begin{equation}
+S \equiv \lambda nab.a(nab)
+\label{Slambda}
+\end{equation}
+Then you can later refer to equation (\ref{Slambda}) and impress your friends
+with your \LaTeX{} power.
+Got a \emph{really} important result? Frame it!
+\begin{empheq}[box=\fbox]{equation}
+S \equiv \lambda nab.a(nab)
+\end{empheq}
+That's about it for just plain \(\lambda\) expressions.
+
+\section*{Problem 2}
+
+One of \emph{many} ways to typeset a derivation.
+Note the use of ``\(\equiv\)'' for steps that just rename things versus the use
+of ``\(\to\)'' for reductions.
+%
+\begin{align*}
+S3
+\equiv {} & (\lambda nab.a(nab)) 3 \\
+\equiv {} & (\lambda nab.a(nab)) (\lambda sz.s(s(s(z)))) \\
+\to {}    & \lambda ab.a((\lambda sz.s(s(s(z))))ab) \\
+\to {}    & \lambda ab.a((\lambda z.a(a(a(z))))b) \\
+\to {}    & \lambda ab.a(a(a(a(b)))) \\
+\equiv {} & \lambda sz.s(s(s(s(z)))) \\
+\equiv {} & 4
+\end{align*}
+%
+If you want to be even clearer, underline the redexes for reductions and use a
+fancy font for abbreviations:
+%
+\begin{align*}
+\textsf{S3}
+\equiv {} & (\lambda nab.a(nab)) \textsf{3} \\
+\equiv {} & (\lambda \underline{n}ab.a(nab)) \underline{(\lambda sz.s(s(s(z))))} \\
+\to {}    & \lambda ab.a((\lambda \underline{s}z.s(s(s(z))))\underline{a}b) \\
+\to {}    & \lambda ab.a((\lambda \underline{z}.a(a(a(z))))\underline{b}) \\
+\to {}    & \lambda ab.a(a(a(a(b)))) \\
+\equiv {} & \lambda sz.s(s(s(s(z)))) \\
+\equiv {} & \textsf{4}
+\end{align*}
+%
+And we're done for now.
+
+\end{document}
